@@ -1,0 +1,14 @@
+
+
+<h1>Orders</h1>
+
+{% for order in orders %}
+    <h2>Order ID: {{ order.id }}</h2>
+    <h3>Client: {{ order.client.name }}</h3>
+    <p>Total Amount: ${{ order.total_amount }}</p>
+    <ul>
+        {% for product in order.products.all %}
+            <li>{{ product.name }} - ${{ product.price }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
